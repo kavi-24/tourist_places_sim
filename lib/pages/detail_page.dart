@@ -45,16 +45,23 @@ class _DetailPageState extends State<DetailPage> {
                   // left: 20
                   left: 10,
                   top: 70,
-                  child: Row(
-                    children: [
-                      IconButton(
-                        onPressed: () {
-                          BlocProvider.of<AppCubits>(context).goHome();
-                        },
-                        icon: const Icon(Icons.menu),
-                        color: Colors.white,
-                      ),
-                    ],
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.grey.withOpacity(0.5),
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(color: Colors.black, width: 2)
+                    ),
+                    child: Row(
+                      children: [
+                        IconButton(
+                          onPressed: () {
+                            BlocProvider.of<AppCubits>(context).goHome();
+                          },
+                          icon: const Icon(Icons.menu),
+                          color: Colors.white,
+                        ),
+                      ],
+                    ),
                   )),
               Positioned(
                 // top: 330
