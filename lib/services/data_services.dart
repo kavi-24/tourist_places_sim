@@ -16,11 +16,11 @@ class DataServices {
           return list.map((e) => DataModel.fromJson(e)).toList();
         }
         else {
-          print("Else");
+          // print("Else");
           return <DataModel>[];
         }
     } catch (e) {
-      print(e);
+      // print(e);
       return <DataModel>[];
     }
   }

@@ -9,7 +9,7 @@ class WelcomePage extends StatefulWidget {
   const WelcomePage({Key? key}) : super(key: key);
 
   @override
-  _WelcomePageState createState() => _WelcomePageState();
+  State<WelcomePage> createState() => _WelcomePageState();
 }
 
 class _WelcomePageState extends State<WelcomePage> {
@@ -37,31 +37,31 @@ class _WelcomePageState extends State<WelcomePage> {
               height: double.maxFinite,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage("img/" + images[index]),
+                  image: AssetImage("img/${images[index]}"),
                   fit: BoxFit.cover,
                 ),
               ),
               child: Container(
-                margin: EdgeInsets.only(top: 150, left: 20, right: 20),
+                margin: const EdgeInsets.only(top: 150, left: 20, right: 20),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        AppTextLarge(
+                        const AppTextLarge(
                           text: "Trips",
                           color: Colors.black,
                         ),
                         // AppText(text: "Discover", color: Colors.red,)
-                        AppText(
+                        const AppText(
                           text: "Mountain",
                           size: 30,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
-                        Container(
+                        SizedBox(
                           width: 250,
                           child: AppText(
                             // text: "Mountain hikes gives you an incredible sense of freedom along with endurance test",
@@ -70,16 +70,16 @@ class _WelcomePageState extends State<WelcomePage> {
                             size: 16,
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 40,
                         ),
                         GestureDetector(
                           onTap: () {
                             BlocProvider.of<AppCubits>(context).getData();
                           },
-                          child: Container(
+                          child: SizedBox(
                               width: 200, child: Row(
-                                children: [
+                                children: const [
                                   ResponsiveButton(width: 120),
                                 ],
                               )
@@ -90,7 +90,7 @@ class _WelcomePageState extends State<WelcomePage> {
                     Column(
                       children: List.generate(images.length, (indexDots) {
                         return Container(
-                          margin: EdgeInsets.only(bottom: 2),
+                          margin: const EdgeInsets.only(bottom: 2),
                           width: 8,
                           height: index == indexDots ? 25 : 8,
                           decoration: BoxDecoration(

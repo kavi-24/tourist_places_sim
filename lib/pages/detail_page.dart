@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class DetailPage extends StatefulWidget {
-  DetailPage({Key? key}) : super(key: key);
+  const DetailPage({Key? key}) : super(key: key);
 
   @override
   State<DetailPage> createState() => _DetailPageState();
@@ -22,7 +22,7 @@ class _DetailPageState extends State<DetailPage> {
     return BlocBuilder<AppCubits, CubitStates>(builder: (context, state) {
       DetailState detail = state as DetailState;
       return Scaffold(
-        body: Container(
+        body: SizedBox(
           width: double.maxFinite,
           height: double.maxFinite,
           child: Stack(
@@ -35,7 +35,8 @@ class _DetailPageState extends State<DetailPage> {
                   height: 350,
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                        image: NetworkImage("http://mark.bslmeiyu.com/uploads/"+detail.place.img),
+                        image: NetworkImage(
+                            "http://mark.bslmeiyu.com/uploads/${detail.place.img}"),
                         fit: BoxFit.cover),
                   ),
                 ),
@@ -50,7 +51,7 @@ class _DetailPageState extends State<DetailPage> {
                         onPressed: () {
                           BlocProvider.of<AppCubits>(context).goHome();
                         },
-                        icon: Icon(Icons.menu),
+                        icon: const Icon(Icons.menu),
                         color: Colors.white,
                       ),
                     ],
@@ -59,10 +60,10 @@ class _DetailPageState extends State<DetailPage> {
                 // top: 330
                 top: 280,
                 child: Container(
-                  padding: EdgeInsets.only(left: 20, right: 20, top: 30),
+                  padding: const EdgeInsets.only(left: 20, right: 20, top: 30),
                   width: MediaQuery.of(context).size.width,
                   height: 500,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(30),
@@ -75,17 +76,18 @@ class _DetailPageState extends State<DetailPage> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           AppTextLarge(
-                              text: detail.place.name,
-                              color: Colors.black54.withOpacity(0.8),
-                              size: 25,),
+                            text: detail.place.name,
+                            color: Colors.black54.withOpacity(0.8),
+                            size: 25,
+                          ),
                           AppTextLarge(
-                            text: "\$ "+detail.place.price.toString(),
+                            text: "\$ ${detail.place.price}",
                             color: AppColors.mainColor,
                             size: 20,
                           ),
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       Row(
@@ -94,7 +96,7 @@ class _DetailPageState extends State<DetailPage> {
                             Icons.location_on,
                             color: AppColors.mainColor,
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 5,
                           ),
                           AppText(
@@ -103,7 +105,7 @@ class _DetailPageState extends State<DetailPage> {
                           ),
                         ],
                       ),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       Row(
                         children: [
                           Wrap(
@@ -115,16 +117,16 @@ class _DetailPageState extends State<DetailPage> {
                                   : AppColors.textColor2,
                             );
                           })),
-                          SizedBox(
+                          const SizedBox(
                             width: 10,
                           ),
                           AppText(
-                            text: "(" + detail.place.stars.toString() + ".0)",
+                            text: "(${detail.place.stars}.0)",
                             color: AppColors.textColor2,
                           )
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 25,
                       ),
                       AppTextLarge(
@@ -132,14 +134,14 @@ class _DetailPageState extends State<DetailPage> {
                         color: Colors.black.withOpacity(0.8),
                         size: 20,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 5,
                       ),
                       AppText(
                         text: "Number of people in your group",
                         color: AppColors.mainTextColor,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       Wrap(
@@ -151,7 +153,7 @@ class _DetailPageState extends State<DetailPage> {
                             });
                           },
                           child: Container(
-                            margin: EdgeInsets.only(right: 10),
+                            margin: const EdgeInsets.only(right: 10),
                             child: AppButtons(
                               size: 50,
                               color: selectedIndex == index
@@ -170,7 +172,7 @@ class _DetailPageState extends State<DetailPage> {
                           ),
                         );
                       })),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       AppTextLarge(
@@ -178,12 +180,11 @@ class _DetailPageState extends State<DetailPage> {
                         color: Colors.black.withOpacity(0.8),
                         size: 20,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 5,
                       ),
                       AppText(
-                        text:
-                            detail.place.description,
+                        text: detail.place.description,
                         color: AppColors.mainTextColor,
                       ),
                     ],
@@ -202,10 +203,10 @@ class _DetailPageState extends State<DetailPage> {
                         size: 60,
                         isIcon: true,
                         icon: Icons.favorite_border),
-                    SizedBox(
+                    const SizedBox(
                       width: 20,
                     ),
-                    ResponsiveButton(
+                    const ResponsiveButton(
                       isResponsive: true,
                     )
                   ]))

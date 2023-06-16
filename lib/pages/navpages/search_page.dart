@@ -5,10 +5,8 @@ class SearchPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Text(
+    return const Text(
         "Search Page"
-      ),
     );
   }
 }

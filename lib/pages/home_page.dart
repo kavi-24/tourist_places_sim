@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomePage extends StatefulWidget {
-  HomePage({Key? key}) : super(key: key);
+  const HomePage({Key? key}) : super(key: key);
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -24,7 +24,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    TabController _tabController = TabController(length: 3, vsync: this);
+    TabController tabController = TabController(length: 3, vsync: this);
 
     return Scaffold(
         body: BlocBuilder<AppCubits, CubitStates>(builder: (context, state) {
@@ -33,17 +33,17 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         // print(info);
         return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Container(
-            padding: EdgeInsets.only(top: 50, left: 20),
+            padding: const EdgeInsets.only(top: 50, left: 20),
             child: Row(
               children: [
-                Icon(
+                const Icon(
                   Icons.menu,
                   size: 30,
                   color: Colors.black54,
                 ),
                 Expanded(child: Container()),
                 Container(
-                  margin: EdgeInsets.only(right: 20),
+                  margin: const EdgeInsets.only(right: 20),
                   width: 50,
                   height: 50,
                   decoration: BoxDecoration(
@@ -54,48 +54,46 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           Container(
-              margin: EdgeInsets.only(left: 20),
-              child: AppTextLarge(text: "Discover")),
-          SizedBox(
+              margin: const EdgeInsets.only(left: 20),
+              child: const AppTextLarge(text: "Discover")),
+          const SizedBox(
             height: 20,
           ),
-          Container(
-            child: Align(
-              alignment: Alignment.centerLeft,
-              child: TabBar(
-                controller: _tabController,
-                // left: 20 right:20  changes with device
-                labelPadding: EdgeInsets.only(left: 20, right: 20),
-                labelColor: Colors.black,
-                unselectedLabelColor: Colors.grey,
-                isScrollable: true,
-                indicatorSize: TabBarIndicatorSize.label,
-                indicator:
-                    CircleTabIndicator(color: AppColors.mainColor, radius: 4),
-                tabs: [
-                  Tab(
-                    text: "Places",
-                  ),
-                  Tab(
-                    text: "Inspiration",
-                  ),
-                  Tab(
-                    text: "Emotions",
-                  ),
-                ],
-              ),
+          Align(
+            alignment: Alignment.centerLeft,
+            child: TabBar(
+              controller: tabController,
+              // left: 20 right:20  changes with device
+              labelPadding: const EdgeInsets.only(left: 20, right: 20),
+              labelColor: Colors.black,
+              unselectedLabelColor: Colors.grey,
+              isScrollable: true,
+              indicatorSize: TabBarIndicatorSize.label,
+              indicator:
+                  CircleTabIndicator(color: AppColors.mainColor, radius: 4),
+              tabs: const [
+                Tab(
+                  text: "Places",
+                ),
+                Tab(
+                  text: "Inspiration",
+                ),
+                Tab(
+                  text: "Emotions",
+                ),
+              ],
             ),
           ),
           Container(
-            padding: EdgeInsets.only(left: 20),
+            padding: const EdgeInsets.only(left: 20),
             height: 300,
             width: double.maxFinite,
             child: TabBarView(
-              controller: _tabController,
+              controller: tabController,
               children: [
                 ListView.builder(
                     itemCount: info.length,
@@ -106,7 +104,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                               BlocProvider.of<AppCubits>(context).detailPage(info[index]);
                             },
                         child: Container(
-                            margin: EdgeInsets.only(right: 15, top: 10),
+                            margin: const EdgeInsets.only(right: 15, top: 10),
                             // width: 200,
                             width: 200,
                             height: 300,
@@ -115,26 +113,25 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                 color: Colors.white,
                                 image: DecorationImage(
                                   image: NetworkImage(
-                                      "http://mark.bslmeiyu.com/uploads/" +
-                                          info[index].img),
+                                      "http://mark.bslmeiyu.com/uploads/${info[index].img}"),
                                   fit: BoxFit.cover,
                                 ))),
                       );
                     }),
-                Text("2"),
-                Text("3"),
+                const Text("2"),
+                const Text("3"),
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 30,
           ),
           Container(
-            margin: EdgeInsets.only(left: 20, right: 20),
+            margin: const EdgeInsets.only(left: 20, right: 20),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                AppTextLarge(
+                const AppTextLarge(
                   text: "Explore More",
                   size: 22,
                 ),
@@ -145,12 +142,12 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           Container(
               // left: 20
-              margin: EdgeInsets.only(left: 20),
+              margin: const EdgeInsets.only(left: 20),
               height: 120,
               width: double.maxFinite,
               child: ListView.builder(
@@ -159,7 +156,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   itemBuilder: (_, index) {
                     return Container(
                       // right: 30
-                      margin: EdgeInsets.only(right: 30),
+                      margin: const EdgeInsets.only(right: 30),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -172,13 +169,14 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                   color: Colors.white,
                                   image: DecorationImage(
                                     image: AssetImage(
-                                        "img/" + images.keys.elementAt(index)),
+                                        "img/${images.keys.elementAt(index)}"
+                                      ),
                                     fit: BoxFit.cover,
                                   ))),
-                          SizedBox(
+                          const SizedBox(
                             height: 5,
                           ),
-                          Container(
+                          SizedBox(
                             child: AppText(
                               text: images.values.elementAt(index),
                               color: AppColors.textColor2,
@@ -198,9 +196,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
 class CircleTabIndicator extends Decoration {
   final Color color;
-  double radius;
+  final double radius;
 
-  CircleTabIndicator({required this.color, required this.radius});
+  const CircleTabIndicator({required this.color, required this.radius});
 
   @override
   BoxPainter createBoxPainter([VoidCallback? onChanged]) {
@@ -216,14 +214,14 @@ class _CirclePainter extends BoxPainter {
 
   @override
   void paint(Canvas canvas, Offset offset, ImageConfiguration configuration) {
-    Paint _paint = Paint();
-    _paint.color = color;
-    _paint.isAntiAlias = true;
+    Paint paint = Paint();
+    paint.color = color;
+    paint.isAntiAlias = true;
 
     final Offset circleOffset = Offset(
         configuration.size!.width / 2 - radius / 2,
         configuration.size!.height - radius / 2);
 
-    canvas.drawCircle(offset + circleOffset, radius, _paint);
+    canvas.drawCircle(offset + circleOffset, radius, paint);
   }
 }

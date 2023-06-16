@@ -1,13 +1,12 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class AppTextLarge extends StatelessWidget {
 
-  double size;
+  final double size;
   final String text;
   final Color color;
 
-  AppTextLarge({ Key? key,
+  const AppTextLarge({ Key? key,
   this.size=30,
   required this.text,
   this.color=Colors.black,}) : super(key: key);
@@ -27,10 +26,11 @@ class AppTextLarge extends StatelessWidget {
 
 class AppText extends StatelessWidget {
 
-  double size;
+  final double size;
   final String text;
   final Color color;
-  AppText({ Key? key,
+  
+  const AppText({ Key? key,
   this.size=16,
   required this.text,
   this.color=Colors.black54}) : super(key: key);

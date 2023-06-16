@@ -5,7 +5,7 @@ import 'package:tourist_places_sim/pages/navpages/search_page.dart';
 import 'package:flutter/material.dart';
 
 class MainPage extends StatefulWidget {
-  MainPage({Key? key}) : super(key: key);
+  const MainPage({Key? key}) : super(key: key);
 
   @override
   State<MainPage> createState() => _MainPageState();
@@ -13,7 +13,7 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
 
-  List pages = [
+  List pages = const [
     HomePage(),
     BarItemPage(),
     SearchPage(),
@@ -45,7 +45,7 @@ class _MainPageState extends State<MainPage> {
         showSelectedLabels: false,
         showUnselectedLabels: false,
         elevation: 0.0,
-        items: [
+        items: const [
           BottomNavigationBarItem(
             label: "Home",
             icon: Icon(Icons.apps),

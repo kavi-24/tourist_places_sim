@@ -1,4 +1,3 @@
-import 'package:tourist_places_sim/misc/colors.dart';
 import 'package:tourist_places_sim/widgets/app_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -8,13 +7,13 @@ class AppButtons extends StatelessWidget {
   final Color color;
   final Color bgColor;
   final Color borderColor;
-  double size;
-  String? text;
-  IconData? icon;
-  bool? isIcon;
+  final double size;
+  final String? text;
+  final IconData? icon;
+  final bool? isIcon;
 
 
-  AppButtons({Key? key, required this.color, required this.bgColor, required this.borderColor, required this.size, this.text="Hi", this.icon, this.isIcon=false}) : super(key: key);
+  const AppButtons({Key? key, required this.color, required this.bgColor, required this.borderColor, required this.size, this.text="Hi", this.icon, this.isIcon=false}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -5,10 +5,8 @@ class BarItemPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Text(
-        "Bar Item Page"
-      ),
+    return const Text(
+      "Bar Item Page"
     );
   }
 }

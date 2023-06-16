@@ -3,10 +3,10 @@ import 'package:tourist_places_sim/widgets/app_text.dart';
 import 'package:flutter/material.dart';
 
 class ResponsiveButton extends StatelessWidget {
-  bool isResponsive;
-  double? width;
+  final bool isResponsive;
+  final double? width;
 
-  ResponsiveButton({Key? key, this.isResponsive = false, this.width = 120})
+  const ResponsiveButton({Key? key, this.isResponsive = false, this.width = 120})
       : super(key: key);
 
   @override
@@ -26,11 +26,11 @@ class ResponsiveButton extends StatelessWidget {
           children: [
             isResponsive == true
                 ? Container(
-                    child: AppText(
+                    margin: const EdgeInsets.only(left: 20),
+                    child: const AppText(
                       text: "Book Trip Now",
                       color: Colors.white,
                     ),
-                    margin: EdgeInsets.only(left: 20),
                   )
                 : Container(),
             Image.asset("img/button-one.png")

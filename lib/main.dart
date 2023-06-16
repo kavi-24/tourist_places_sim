@@ -1,12 +1,11 @@
 import 'package:tourist_places_sim/cubit/app_cubit_logics.dart';
 import 'package:tourist_places_sim/cubit/app_cubits.dart';
-import 'package:tourist_places_sim/pages/detail_page.dart';
 import 'package:tourist_places_sim/services/data_services.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
-  runApp(MyApp());
+runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -20,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(primaryColor: Colors.blue),
       home: BlocProvider<AppCubits>(
         create: (context) => AppCubits(data: DataServices()),
-        child: AppCubitLogics(),
+        child: const AppCubitLogics(),
       ),
     );
   }

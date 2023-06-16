@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AppCubitLogics extends StatefulWidget {
-  AppCubitLogics({Key? key}) : super(key: key);
+  const AppCubitLogics({Key? key}) : super(key: key);
 
   @override
   State<AppCubitLogics> createState() => _AppCubitLogicsState();
@@ -20,17 +20,17 @@ class _AppCubitLogicsState extends State<AppCubitLogics> {
       body: BlocBuilder<AppCubits, CubitStates>(
         builder: (context, state) {
           if (state is WelcomeState) {
-            return WelcomePage();
+            return const WelcomePage();
           }
           if (state is DetailState) {
-            return DetailPage();
+            return const DetailPage();
           }
           if (state is LoadingState) {
-            return Center(child: CircularProgressIndicator(),);
+            return const Center(child: CircularProgressIndicator(),);
           }
           if (state is LoadedState) {
             // return HomePage();
-            return MainPage();
+            return const MainPage();
           }
           else {
             return Container();
